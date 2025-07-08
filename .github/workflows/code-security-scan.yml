@@ -1,0 +1,35 @@
+name: CodeQL Analysis
+
+on:
+  workflow_dispatch:  # You can change this to `push`, `pull_request`, etc.
+
+jobs:
+  codeql:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: python  # change to your project language(s)
+
+      # Optional: Setup custom CodeQL bundle
+      # - name: CodeQL Bundle Setup
+      #   uses: advanced-security/codeql-bundle-action@v1.1.0
+      #   with:
+      #     bundle-version: ""  # optional: use latest
+      #     packs: "codeql/python-queries"
+      #     workspace: "."
+      #     upload: true
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     concurrency-limit: 2
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
