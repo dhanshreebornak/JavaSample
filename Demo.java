@@ -10,6 +10,7 @@ public class Demo {
         um.connectDB();
         um.saveUser("admin", "password123");
         System.out.println("Done.");
+        
     }
 
     public void connectDB() {
