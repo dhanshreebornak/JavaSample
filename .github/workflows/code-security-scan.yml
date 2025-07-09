@@ -15,21 +15,23 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'  # Update based on your project’s Java version
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: java  # change to your project language(s)
+          languages: java
 
-      # Optional: Setup custom CodeQL bundle
-      # - name: CodeQL Bundle Setup
-      #   uses: advanced-security/codeql-bundle-action@v1.1.0
-      #   with:
-      #     bundle-version: ""  # optional: use latest
-      #     packs: "codeql/python-queries"
-      #     workspace: "."
-      #     upload: true
-      #     token: ${{ secrets.GITHUB_TOKEN }}
-      #     concurrency-limit: 2
+      - name: Build with Maven
+        run: mvn clean compile
+
+      # Optional: Run tests to generate test coverage
+      # - name: Run tests
+      #   run: mvn test
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
