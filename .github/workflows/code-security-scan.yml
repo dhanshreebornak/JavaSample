@@ -25,6 +25,7 @@ jobs:
         uses: github/codeql-action/init@v3
         with:
           languages: java
+          queries: security-and-quality
 
       - name: Compile Java manually
         run: javac Demo.java  # 👈 compile the standalone file
