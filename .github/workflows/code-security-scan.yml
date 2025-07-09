@@ -1,7 +1,7 @@
 name: CodeQL Analysis
 
 on:
-  workflow_dispatch:  # You can change this to `push`, `pull_request`, etc.
+  workflow_dispatch:
 
 jobs:
   codeql:
@@ -19,7 +19,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'  # Update based on your project’s Java version
+          java-version: '17'  # Adjust as needed
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
@@ -28,10 +28,7 @@ jobs:
 
       - name: Build with Maven
         run: mvn clean compile
-
-      # Optional: Run tests to generate test coverage
-      # - name: Run tests
-      #   run: mvn test
+        working-directory: JavaSampleApp  # 👈 change this to your actual folder
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
