@@ -26,7 +26,7 @@ jobs:
         with:
           languages: java
           # Use the main security-and-quality pack plus the secret scanning community pack
-          queries: security-and-quality, security-extended
+          queries: security-and-quality, codeql/java-security-secrets
         
 
       - name: Compile Java manually
