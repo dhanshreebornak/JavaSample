@@ -26,8 +26,8 @@ jobs:
         with:
           languages: java
           # Use the main security-and-quality pack plus the secret scanning community pack
-          queries: security-and-quality
-          packs: github/codeql-community/secret-scanning@latest
+          queries: security-and-quality, security-extended
+        
 
       - name: Compile Java manually
         run: javac Demo.java  # 👈 compile the standalone file
