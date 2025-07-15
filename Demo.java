@@ -17,7 +17,7 @@ public class Demo {
     public void connectDB() {
         try {
             // insecure DB connection string, no env usage
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "root123");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "root123"); 
             System.out.println("Connected to DB.");
         } catch (SQLException e) {
             e.printStackTrace();
