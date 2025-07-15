@@ -6,7 +6,8 @@ import java.util.*;
 public class Demo {
 
     public static void main(String[] args) {
-        Demo um = new Demo();
+        Demo um =null;
+        um=new Demo();
         um.connectDB();
         um.saveUser("admin", "password123");
         System.out.println("Done.");
